@@ -1,7 +1,7 @@
 ---
 transmission_luci: yes
-transmission_config_dir: /tmp/transmission
-transmission_download_dir: /tmp/transmission/done
+#transmission_config_dir: ''
+transmission_download_dir: "{{ transmission_config_dir }}/done"
 transmission_incomplete_dir: ''
 transmission_watch_dir: ''
 transmission_rpc_enabled: true

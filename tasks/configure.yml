@@ -1,4 +1,15 @@
 ---
+- name: Set transmission config dir
+  block:
+  - name: Find USB drive mount point
+    shell: block info | grep /dev/sd | grep -v swap | grep -o -E 'MOUNT="[^"]+"' | cut -d\" -f2
+    register: block_mount
+
+  - name: Set transmission_config_dir
+    set_fact:
+      transmission_config_dir: "{{ block_mount.stdout if block_mount.stdout != '' else '/tmp' }}/transmission"
+  when: transmission_config_dir is undefined
+
 - name: Configure Transmission
   uci:
     command: set
