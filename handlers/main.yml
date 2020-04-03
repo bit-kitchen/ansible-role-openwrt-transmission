@@ -1,2 +1,9 @@
 ---
-# handlers file for openwrt-transmission
+- name: uci commit
+  uci:
+    command: commit
+
+- name: service transmission restart
+  service:
+    name: transmission
+    state: restarted

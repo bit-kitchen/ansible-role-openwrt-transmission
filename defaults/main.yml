@@ -1,2 +1,9 @@
 ---
 transmission_luci: yes
+transmission_config_dir: /tmp/transmission
+transmission_download_dir: /tmp/transmission/done
+transmission_incomplete_dir: ''
+transmission_watch_dir: ''
+transmission_rpc_enabled: true
+transmission_rpc_bind_address: 0.0.0.0
+transmission_rpc_port: 9091

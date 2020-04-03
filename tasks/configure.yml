@@ -1,0 +1,19 @@
+---
+- name: Configure Transmission
+  uci:
+    command: set
+    key: transmission.@transmission[0]
+    value:
+      enabled: 1
+      watch_dir_enabled: "{{ transmission_watch_dir != '' }}"
+      incomplete_dir_enabled: "{{ transmission_incomplete_dir != '' }}"
+      config_dir: "{{ transmission_config_dir }}"
+      download_dir: "{{ transmission_download_dir }}"
+      incomplete_dir: "{{ transmission_incomplete_dir }}"
+      watch_dir: "{{ transmission_watch_dir }}"
+      rpc_enabled: "{{ transmission_rpc_enabled }}"
+      rpc_bind_address: "{{ transmission_rpc_bind_address }}"
+      rpc_port: "{{ transmission_rpc_port }}"
+  notify:
+  - uci commit
+  - service transmission restart
