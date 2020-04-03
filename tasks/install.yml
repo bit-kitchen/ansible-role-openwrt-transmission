@@ -1,0 +1,19 @@
+---
+- name: Install transmission daemon
+  block:
+  - name: Install transmission daemon mbedtls
+    opkg:
+      name: transmission-daemon-mbedtls
+  rescue:
+  - name: Install transmission daemon openssl
+    opkg:
+      name: transmission-daemon-openssl
+
+- name: Install transmission web
+  opkg:
+    name: transmission-web
+
+- name: Install luci app transmission
+  opkg:
+    name: luci-app-transmission
+  when: luci
