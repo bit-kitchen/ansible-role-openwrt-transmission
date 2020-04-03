@@ -49,3 +49,4 @@ galaxy_info:
 
 dependencies:
   - gekmihesg.openwrt
+  - bit_kitchen.openwrt_storage
