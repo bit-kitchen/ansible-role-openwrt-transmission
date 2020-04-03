@@ -16,4 +16,4 @@
 - name: Install luci app transmission
   opkg:
     name: luci-app-transmission
-  when: luci
+  when: transmission_luci
