@@ -1,7 +1,13 @@
 ---
 - name: Install transmission daemon
-  opkg:
-    name: transmission-daemon-mbedtls
+  block:
+  - name: Install transmission daemon mbedtls
+    opkg:
+      name: transmission-daemon-mbedtls
+  rescue:
+  - name: Install transmission daemon openssl
+    opkg:
+      name: transmission-daemon-openssl
 
 - name: Install transmission web
   opkg:
