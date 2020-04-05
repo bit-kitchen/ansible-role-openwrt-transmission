@@ -4,6 +4,7 @@
   - name: Find USB drive mount point
     shell: block info | grep /dev/sd | grep -v swap | grep -o -E 'MOUNT="[^"]+"' | cut -d\" -f2
     register: block_mount
+    changed_when: no
 
   - name: Set transmission_config_dir
     set_fact:
