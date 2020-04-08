@@ -1,6 +1,9 @@
 ansible-role-openwrt-transmission
 =================================
 
+[![Ansible Role: bit_kitchen.openwrt_transmission](https://img.shields.io/ansible/role/47726.svg)](https://galaxy.ansible.com/bit_kitchen/openwrt_transmission)
+[![Build Status: bit-kitchen/ansible-role-openwrt-transmission](https://travis-ci.org/bit-kitchen/ansible-role-openwrt-transmission.svg?branch=master)](https://travis-ci.org/bit-kitchen/ansible-role-openwrt-transmission)
+
 ```sh
 ansible-galaxy install bit_kitchen.openwrt_transmission
 ```
