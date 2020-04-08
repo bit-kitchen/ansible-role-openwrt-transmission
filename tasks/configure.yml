@@ -2,7 +2,7 @@
 - name: Set transmission config dir
   block:
   - name: Find USB drive mount point
-    shell: block info | grep /dev/sd | grep -v swap | grep -o -E 'MOUNT="[^"]+"' | cut -d\" -f2
+    shell: block info | grep /dev/sd | grep -v swap | grep -o -E 'MOUNT="[^"]+"' | cut -d\" -f2 | head -1
     register: block_mount
     changed_when: no
 
