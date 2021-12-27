@@ -1,13 +1,21 @@
 ---
-- name: Install transmission daemon
+- name: Install transmission-daemon for OpenWrt >= 21.02
+  opkg:
+    name: transmission-daemon
+  when: ansible_distribution_major_version is undefined
+    or ansible_distribution_major_version|int >= 21
+
+- name: Install transmission daemon for OpenWrt <= 19.07
   block:
-  - name: Install transmission daemon mbedtls
+  - name: Install transmission-daemon-mbedtls for OpenWrt <= 19.07
     opkg:
       name: transmission-daemon-mbedtls
   rescue:
-  - name: Install transmission daemon openssl
+  - name: Install transmission-daemon-openssl for OpenWrt <= 19.07
     opkg:
       name: transmission-daemon-openssl
+  when: ansible_distribution_major_version is defined
+    and ansible_distribution_major_version|int < 21
 
 - name: Install transmission web
   opkg:
